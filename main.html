@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>逻辑模拟器</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<div id="info">▶ 欢迎使用逻辑模拟器，在这里，你可以将脑海中想象的逻辑电路变为现实，去探索数字逻辑的无限可能！ --By Pluto伟、我不吃辣椒、航行万里</div>
+<canvas id="canvas"></canvas>
+
+<input type="file" id="fileInput" style="display:none" accept=".json" onchange="handleFileSelect(event)">
+
+
+<div id="help" class="modal">
+  <div class="modal-content" style="width:90%; max-width:500px; max-height:85vh; overflow:hidden; display:flex; flex-direction:column; gap:10px; padding:16px; box-sizing:border-box;">
+    <h3 style="margin:0; font-size:16px;">❓ 帮助</h3>
+    
+    <div style="flex:1; overflow-y:auto; padding-right:4px; font-size:14px; line-height:1.4;">
+      <p style="margin:0 0 6px 0;">逻辑模拟器使用方法：</p>
+
+      <p style="margin:0 0 4px 0; font-weight:500;">1. 创建电路：</p>
+      <p style="margin:0 0 4px 20px;">- 左侧工具栏添加逻辑门、模块、IO设备。</p>
+      <p style="margin:0 0 4px 20px;">- 拖动移动组件，点击连接点创建连线。</p>
+
+      <p style="margin:8px 0 4px 0; font-weight:500;">2. 编辑电路：</p>
+      <p style="margin:0 0 4px 20px;">- 选择模式：可选中多个组件移动。</p>
+      <p style="margin:0 0 4px 20px;">- 删除元件：双击组件即可删除。</p>
+      <p style="margin:0 0 4px 20px;">- 位编辑器：点击寄存器等位直接修改。</p>
+      <p style="margin:0 0 4px 20px;">- 替换元件：选中后点击目标元件替换。</p>
+
+      <p style="margin:8px 0 4px 0; font-weight:500;">3. 仿真控制：</p>
+      <p style="margin:0 0 4px 20px;">- 时钟控制：调节速度、暂停/继续。</p>
+      <p style="margin:0 0 4px 20px;">- 竞态模式：开关影响全局，请谨慎操作。</p>
+
+      <p style="margin:8px 0 4px 0; font-weight:500;">4. 存档与分享：</p>
+      <p style="margin:0 0 4px 20px;">- 保存：导出电路为 JSON 文件。</p>
+      <p style="margin:0 0 4px 20px;">- 读取：加载本地 JSON 文件。</p>
+      <p style="margin:0 0 4px 20px;">- 创意工坊：浏览社区分享存档。</p>
+
+      <p style="margin:8px 0 4px 0; font-weight:500;">5. 导出 Verilog：</p>
+      <p style="margin:0 0 4px 20px;">- 导出代码仅在 ModelSim 测试通过，其他仿真器可能不兼容。</p>
+      <p style="margin:0; font-size:12px; color:var(--text-sub);">--By Pluto伟、我不吃辣椒、航行万里</p>
+    </div>
+
+    <div class="modal-actions" style="border-top:1px solid #333; padding-top:10px; margin-top:4px; text-align:right;">
+      <button onclick="closeHelp()" style="padding:6px 12px;">关闭</button>
+    </div>
+  </div>
+</div>
+
+
+<div id="workshopModal" class="modal">
+  <div class="modal-content" style="width:500px; max-height:70vh; overflow:hidden; display:flex; flex-direction:column; gap:12px; padding:20px;">
+    <h3 style="margin:0;">☁️ 创意工坊</h3>
+    <div id="workshopList" style="flex:1; overflow-y:auto; padding:8px 4px; gap:10px; display:flex; flex-direction:column;"></div>
+    <div class="modal-actions" style="border-top:1px solid #333; padding-top:12px; margin-top:4px;">
+        <button onclick="openUploadModal()">📤 上传</button>
+        <button onclick="closeWorkshop()">关闭</button>
+    </div>
+  </div>
+</div>
+
+<div id="uploadModal" class="modal">
+  <div class="modal-content">
+    <h3>📤 上传存档</h3>
+
+    <input type="text" id="uploadTitle" placeholder="请输入存档名称">
+
+    <input type="file" id="uploadFile" accept=".json">
+
+    <div class="modal-actions">
+      <button onclick="closeUploadModal()">取消</button>
+      <button style="background:var(--accent);" onclick="uploadProject()">上传</button>
+    </div>
+  </div>
+</div>
+
+<div id="bitEditorModal" class="modal">
+    <div class="modal-content">
+        <h3 id="bitEditorTitle">编辑寄存器</h3>
+        <div class="bit-grid" id="bitGrid"></div>
+        <div style="color:var(--text-sub); font-size:13px; margin-top:12px; background:#1e1e1e; padding:8px; border:1px solid #333;">
+            HEX: <span id="bitHexDisplay" style="color:var(--accent); font-weight:bold;">0x0000</span> &nbsp;|&nbsp; 
+            DEC: <span id="bitDecDisplay">0</span>
+        </div>
+        <div class="modal-actions">
+            <button onclick="closeBitEditor()">取消</button>
+            <button style="background:var(--accent);" onclick="saveBitEditor()">💾 保存设定</button>
+        </div>
+    </div>
+</div>
+
+<div id="toolbar">
+    <div class="btn-group">
+        <span class="group-label">SYSTEM</span>
+        <div class="btn-grid">
+            <button onclick="undo()">⏪ 撤销</button>
+            <button onclick="openWorkshop()">☁️ 工坊</button>
+            <button onclick="downloadProject()">💾 保存</button>
+            <button onclick="document.getElementById('fileInput').click()">📂 读取</button>
+        <!-- </div>
+        <div class="btn-grid"> -->
+            <button id="selBtn" onclick="toggleSelectMode()">🔲 选择 [OFF]</button>
+            <button onclick="resetView()">🏠 视图归位</button>
+            <button onclick="openHelp()">❓ 帮助</button>
+            <button onclick="toggleTheme()">🌓 切换主题</button>
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <span class="group-label">CLOCK_CTRL</span>
+        <div class="slider-panel">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span>间隔: <b id="clockVal">20</b> 帧</span>
+                <button id="pauseBtn" onclick="toggleSim()" style="padding:4px 8px; font-size:11px; margin-left:10px;">⏸ 暂停</button>
+            </div>
+            <input type="range" id="clockSlider" min="1" max="100" value="20" oninput="updateClockSpeed(this.value)">
+            <div class="btn-grid">
+                <button id="raceBtn" onclick="toggleRaceMode()">⚡ 竞态 [OFF]</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <span class="group-label">IO_DEVICES</span>
+        <div class="btn-grid">
+            <button onclick="uiAddOrReplace('SWITCH')">🔌 开关</button>
+            <button onclick="uiAddOrReplace('CLOCK')">⏱️ 时钟</button>
+            <button onclick="uiAddOrReplace('LIGHT')">💡 指示灯</button>
+            <button onclick="uiAddOrReplace('SCOPE')">📈 示波器</button>
+            <button onclick="uiAddOrReplace('SEG7')">8️⃣ 数码管</button>
+            <button onclick="uiAddOrReplace('SEG8')">🔢 8位补码</button>
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <span class="group-label">LOGIC_GATES</span>
+        <div class="btn-grid">
+            <button onclick="uiAddOrReplace('AND')">AND</button>
+            <button onclick="uiAddOrReplace('OR')">OR</button>
+            <button onclick="uiAddOrReplace('NOT')">NOT</button>
+            <button onclick="uiAddOrReplace('XOR')">XOR</button>
+            <button onclick="uiAddDynamic('AND_N')">AND(N)</button>
+            <button onclick="uiAddDynamic('OR_N')">OR(N)</button>
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <span class="group-label">ADV_MODULES</span>
+        <div class="btn-grid">
+            <button onclick="uiAddOrReplace('HA')">➕ HA</button>
+            <button onclick="uiAddOrReplace('FA')">➕ FA</button>
+            <button onclick="uiAddOrReplace('MUX')">🔀 MUX2</button>
+            <button onclick="uiAddOrReplace('MUX4')">🔀 MUX4</button>
+            <button onclick="uiAddOrReplace('DFF')">📦 DFF</button>
+            <button onclick="uiAddOrReplace('JKFF')">📦 JKFF</button>
+            <button onclick="uiAddOrReplace('TFF')">🔄 TFF</button>
+            <button onclick="uiAddOrReplace('CNT4')">🔢 CNT4</button>
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <span class="group-label">COMPLEX</span>
+        <div class="btn-grid">
+            <button onclick="uiAddOrReplace('DEC24')">DEC 2-4</button>
+            <button onclick="uiAddOrReplace('DEC38')">DEC 3-8</button>
+            <button onclick="uiAddOrReplace('ENC42')">ENC 4-2</button>
+            <button onclick="uiAddOrReplace('ROM16')">📖 ROM16</button>
+        </div>
+        <button onclick="uiAddOrReplace('REGBANK')" style="margin-top:6px; justify-content:center;">💾 REG BANK 16</button>
+    </div>
+
+    <div class="btn-group">
+        <span class="group-label">ACTIONS</span>
+        <button onclick="exportVerilog()">📝 导出 Verilog</button>
+        <button class="danger" onclick="clearCanvas()" style="margin-top:6px;">🗑️ 清空画布</button>
+    </div>
+</div>
+
+<!-- 右侧AI侧边栏按钮 -->
+<div id="aiToggleBtn">🤖</div>
+
+<!-- AI侧边栏 -->
+<div id="aiSidebar">
+    <div class="ai-header">
+        <span>AI 助手</span>
+        <button onclick="toggleAISidebar()">✖</button>
+    </div>
+
+    <div class="ai-body" id="aiChatBox">
+        <div class="ai-msg ai">你好，我是你的电路助手 👋</div>
+    </div>
+
+    <div class="ai-input-area">
+        <input id="aiInput" placeholder="输入你的问题..." />
+        <button onclick="sendAIMessage()">发送</button>
+        <button onclick="generateFromInput()">⚡ 搭建</button>
+    </div>
+
+    <div class="ai-footer">
+        <button onclick="openAIConfig()">🔑 登录 / 配置API</button>
+    </div>
+</div>
+
+<!-- API配置弹窗 -->
+<div id="aiConfigModal" class="modal">
+    <div class="modal-content">
+        <h3>🔑 API 配置</h3>
+        <input id="apiKeyInput" placeholder="输入你的 API Key" />
+        <input id="apiUrlInput" placeholder="API URL (可选)" />
+        <div class="modal-actions">
+            <button onclick="closeAIConfig()">取消</button>
+            <button onclick="saveAIConfig()" style="background:var(--accent)">保存</button>
+        </div>
+    </div>
+</div>
+
+<script src="./js/core.js"></script>
+<script src="./js/bit-editor.js"></script>
+<script src="./js/ui.js"></script>
+<script src="./js/export.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>

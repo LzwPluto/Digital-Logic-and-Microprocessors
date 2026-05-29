@@ -1,0 +1,1022 @@
+{
+  "components": [
+    {
+      "id": 3,
+      "customN": null,
+      "type": "DFF",
+      "x": 415.51629263989344,
+      "y": 380.9685930112725,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false,
+        true,
+        true
+      ],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": false,
+      "lastClk": true,
+      "timer": 0
+    },
+    {
+      "id": 5,
+      "customN": null,
+      "type": "NOT",
+      "x": 414.8194022665703,
+      "y": 444.03572298815516,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false
+      ],
+      "outputs": [
+        true
+      ],
+      "frameStartOutputs": [
+        true
+      ],
+      "state": 0,
+      "timer": 0
+    },
+    {
+      "id": 4,
+      "customN": null,
+      "type": "NOT",
+      "x": 555.5880676399864,
+      "y": 445.777962213289,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false
+      ],
+      "outputs": [
+        true
+      ],
+      "frameStartOutputs": [
+        true
+      ],
+      "state": 0,
+      "timer": 0
+    },
+    {
+      "id": 6,
+      "customN": 3,
+      "type": "AND_N",
+      "x": 706.8097696094612,
+      "y": 377.8326926659147,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        true,
+        false,
+        true
+      ],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": 0,
+      "timer": 0
+    },
+    {
+      "id": 9,
+      "customN": 3,
+      "type": "AND_N",
+      "x": 706.1129589870856,
+      "y": 440.20295885312373,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false,
+        false,
+        true
+      ],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": 0,
+      "timer": 0
+    },
+    {
+      "id": 12,
+      "customN": null,
+      "type": "CNT4",
+      "x": 846.5331392983659,
+      "y": 502.22479314549525,
+      "w": 90,
+      "h": 120,
+      "inputs": [
+        false,
+        false,
+        true
+      ],
+      "outputs": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "frameStartOutputs": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "state": 0,
+      "lastClk": false,
+      "timer": 0
+    },
+    {
+      "id": 14,
+      "customN": null,
+      "type": "CNT4",
+      "x": -39.76947118780423,
+      "y": 388.6131084379239,
+      "w": 90,
+      "h": 120,
+      "inputs": [
+        false,
+        true,
+        true
+      ],
+      "outputs": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "frameStartOutputs": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "state": 0,
+      "lastClk": true,
+      "timer": 0
+    },
+    {
+      "id": 8,
+      "customN": null,
+      "type": "NOT",
+      "x": 570.9149935404429,
+      "y": 252.88138198013107,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false
+      ],
+      "outputs": [
+        true
+      ],
+      "frameStartOutputs": [
+        true
+      ],
+      "state": 0,
+      "timer": 0
+    },
+    {
+      "id": 16,
+      "customN": null,
+      "type": "REGBANK",
+      "x": 181.05825376718496,
+      "y": 86.29387851188035,
+      "w": 120,
+      "h": 340,
+      "inputs": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "outputs": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "frameStartOutputs": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "state": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "timer": 0
+    },
+    {
+      "id": 2,
+      "customN": null,
+      "type": "DFF",
+      "x": 558.0365165059364,
+      "y": 379.21067965380155,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false,
+        true,
+        true
+      ],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": false,
+      "lastClk": true,
+      "timer": 0
+    },
+    {
+      "id": 10,
+      "customN": null,
+      "type": "OR",
+      "x": 826.0070425634881,
+      "y": 408.0516685313459,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false,
+        false
+      ],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": 0,
+      "timer": 0
+    },
+    {
+      "id": 17,
+      "customN": null,
+      "type": "SEG8",
+      "x": 994.1874905081164,
+      "y": 514.0784281753135,
+      "w": 100,
+      "h": 100,
+      "inputs": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "outputs": [],
+      "frameStartOutputs": [],
+      "state": 0,
+      "timer": 0
+    },
+    {
+      "id": 19,
+      "customN": null,
+      "type": "NOT",
+      "x": 10.85306691727352,
+      "y": 555.6894048469284,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false
+      ],
+      "outputs": [
+        true
+      ],
+      "frameStartOutputs": [
+        true
+      ],
+      "state": 0,
+      "timer": 0
+    },
+    {
+      "id": 15,
+      "customN": null,
+      "type": "CLOCK",
+      "x": 157.6782393683352,
+      "y": 555.5188640098382,
+      "w": 90,
+      "h": 60,
+      "inputs": [],
+      "outputs": [
+        true
+      ],
+      "frameStartOutputs": [
+        true
+      ],
+      "state": true,
+      "timer": 19
+    },
+    {
+      "id": 20,
+      "customN": null,
+      "type": "SCOPE",
+      "x": 855.4370485435448,
+      "y": 161.60171636529938,
+      "w": 240,
+      "h": 120,
+      "inputs": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "outputs": [],
+      "frameStartOutputs": [],
+      "state": 0,
+      "historyData": [
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      ],
+      "timer": 0
+    },
+    {
+      "id": 13,
+      "customN": null,
+      "type": "SWITCH",
+      "x": -144.35341321215833,
+      "y": 510.80665915964784,
+      "w": 90,
+      "h": 60,
+      "inputs": [],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": false,
+      "timer": 0
+    }
+  ],
+  "wires": [
+    {
+      "fromId": 3,
+      "fromNodeIdx": 0,
+      "toId": 5,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 2,
+      "fromNodeIdx": 0,
+      "toId": 4,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 4,
+      "fromNodeIdx": 0,
+      "toId": 6,
+      "toNodeIdx": 2
+    },
+    {
+      "fromId": 3,
+      "fromNodeIdx": 0,
+      "toId": 6,
+      "toNodeIdx": 1
+    },
+    {
+      "fromId": 8,
+      "fromNodeIdx": 0,
+      "toId": 6,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 5,
+      "fromNodeIdx": 0,
+      "toId": 9,
+      "toNodeIdx": 2
+    },
+    {
+      "fromId": 2,
+      "fromNodeIdx": 0,
+      "toId": 9,
+      "toNodeIdx": 1
+    },
+    {
+      "fromId": 6,
+      "fromNodeIdx": 0,
+      "toId": 10,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 9,
+      "fromNodeIdx": 0,
+      "toId": 10,
+      "toNodeIdx": 1
+    },
+    {
+      "fromId": 10,
+      "fromNodeIdx": 0,
+      "toId": 2,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 9,
+      "fromNodeIdx": 0,
+      "toId": 12,
+      "toNodeIdx": 1
+    },
+    {
+      "fromId": 13,
+      "fromNodeIdx": 0,
+      "toId": 12,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 13,
+      "fromNodeIdx": 0,
+      "toId": 14,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 15,
+      "fromNodeIdx": 0,
+      "toId": 14,
+      "toNodeIdx": 1
+    },
+    {
+      "fromId": 15,
+      "fromNodeIdx": 0,
+      "toId": 3,
+      "toNodeIdx": 1
+    },
+    {
+      "fromId": 15,
+      "fromNodeIdx": 0,
+      "toId": 2,
+      "toNodeIdx": 1
+    },
+    {
+      "fromId": 14,
+      "fromNodeIdx": 0,
+      "toId": 16,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 14,
+      "fromNodeIdx": 1,
+      "toId": 16,
+      "toNodeIdx": 1
+    },
+    {
+      "fromId": 14,
+      "fromNodeIdx": 2,
+      "toId": 16,
+      "toNodeIdx": 2
+    },
+    {
+      "fromId": 14,
+      "fromNodeIdx": 3,
+      "toId": 16,
+      "toNodeIdx": 3
+    },
+    {
+      "fromId": 16,
+      "fromNodeIdx": 0,
+      "toId": 3,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 16,
+      "fromNodeIdx": 0,
+      "toId": 8,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 16,
+      "fromNodeIdx": 0,
+      "toId": 9,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 12,
+      "fromNodeIdx": 0,
+      "toId": 17,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 12,
+      "fromNodeIdx": 1,
+      "toId": 17,
+      "toNodeIdx": 1
+    },
+    {
+      "fromId": 12,
+      "fromNodeIdx": 2,
+      "toId": 17,
+      "toNodeIdx": 2
+    },
+    {
+      "fromId": 12,
+      "fromNodeIdx": 3,
+      "toId": 17,
+      "toNodeIdx": 3
+    },
+    {
+      "fromId": 13,
+      "fromNodeIdx": 0,
+      "toId": 19,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 19,
+      "fromNodeIdx": 0,
+      "toId": 14,
+      "toNodeIdx": 2
+    },
+    {
+      "fromId": 19,
+      "fromNodeIdx": 0,
+      "toId": 3,
+      "toNodeIdx": 2
+    },
+    {
+      "fromId": 19,
+      "fromNodeIdx": 0,
+      "toId": 2,
+      "toNodeIdx": 2
+    },
+    {
+      "fromId": 19,
+      "fromNodeIdx": 0,
+      "toId": 12,
+      "toNodeIdx": 2
+    },
+    {
+      "fromId": 16,
+      "fromNodeIdx": 0,
+      "toId": 20,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 9,
+      "fromNodeIdx": 0,
+      "toId": 20,
+      "toNodeIdx": 1
+    }
+  ],
+  "nextId": 21
+}

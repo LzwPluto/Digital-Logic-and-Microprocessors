@@ -1,0 +1,98 @@
+{
+  "components": [
+    {
+      "id": 512,
+      "customN": null,
+      "type": "SWITCH",
+      "x": -391.10540771484375,
+      "y": 389.7893981933594,
+      "w": 90,
+      "h": 60,
+      "inputs": [],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": 0,
+      "timer": 0
+    },
+    {
+      "id": 513,
+      "customN": null,
+      "type": "SWITCH",
+      "x": -389.42120361328125,
+      "y": 477.368408203125,
+      "w": 90,
+      "h": 60,
+      "inputs": [],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": false,
+      "timer": 0
+    },
+    {
+      "id": 514,
+      "customN": null,
+      "type": "AND",
+      "x": -256.3685302734375,
+      "y": 437.7894592285156,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false,
+        false
+      ],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": 0,
+      "timer": 0
+    },
+    {
+      "id": 515,
+      "customN": null,
+      "type": "LIGHT",
+      "x": -118.26324462890625,
+      "y": 440.3157653808594,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false
+      ],
+      "outputs": [],
+      "frameStartOutputs": [],
+      "state": false,
+      "timer": 0
+    }
+  ],
+  "wires": [
+    {
+      "fromId": 512,
+      "fromNodeIdx": 0,
+      "toId": 514,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 513,
+      "fromNodeIdx": 0,
+      "toId": 514,
+      "toNodeIdx": 1
+    },
+    {
+      "fromId": 514,
+      "fromNodeIdx": 0,
+      "toId": 515,
+      "toNodeIdx": 0
+    }
+  ],
+  "nextId": 516
+}

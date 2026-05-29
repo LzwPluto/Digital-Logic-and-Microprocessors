@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数逻视界</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{overflow:hidden;background:#02040a;color:#0ff;font-family:Segoe UI}
+#ui{
+ position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+ text-align:center;z-index:10;width:100%
+}
+h1{
+ font-size:min(6vw,72px);
+ letter-spacing:0.6vw;
+ text-shadow:0 0 40px #0ff,0 0 80px #0ff
+}
+button{
+ margin-top:20px;padding:14px 36px;
+ background:rgba(0,255,255,0.1);
+ color:#0ff;border:1px solid #0ff;
+ font-size:clamp(14px,1.2vw,18px);
+ cursor:pointer
+}
+.fade{animation:fade 1s forwards}
+@keyframes fade{to{opacity:0}}
+</style>
+</head>
+<body>
+<div id="ui">
+ <h1>数逻视界</h1>
+ <button onclick="start()">开始搭建</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+<script>
+let scene = new THREE.Scene();
+
+let camera = new THREE.PerspectiveCamera(85, innerWidth/innerHeight, 0.1, 10000);
+camera.position.set(0,200,900);
+
+let renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(innerWidth, innerHeight);
+document.body.appendChild(renderer.domElement);
+
+// 光
+let light = new THREE.PointLight(0x00ffff, 3, 5000);
+light.position.set(0,400,400);
+scene.add(light);
+
+let ambient = new THREE.AmbientLight(0x003333);
+scene.add(ambient);
+
+let baseSize = Math.min(innerWidth, innerHeight) * 0.6;
+
+// 芯片
+let chip = new THREE.Mesh(
+ new THREE.BoxGeometry(baseSize, baseSize*0.2, baseSize),
+ new THREE.MeshStandardMaterial({
+  color:0x001a1a,
+  emissive:0x003333,
+  metalness:0.6,
+  roughness:0.4
+ })
+);
+scene.add(chip);
+
+// 引脚
+let pinCount = Math.floor(baseSize / 20);
+for(let i=-pinCount;i<=pinCount;i++){
+ let offset = i * 10;
+ let pinGeo = new THREE.BoxGeometry(6,6,baseSize*0.08);
+ let mat = new THREE.MeshStandardMaterial({color:0x00ffff});
+
+ let p1 = new THREE.Mesh(pinGeo, mat);
+ p1.position.set(offset,0,baseSize/2 + 20);
+ scene.add(p1);
+
+ let p2 = p1.clone(); p2.position.set(offset,0,-baseSize/2 - 20);
+ let p3 = p1.clone(); p3.rotation.y=Math.PI/2; p3.position.set(baseSize/2 + 20,0,offset);
+ let p4 = p3.clone(); p4.position.set(-baseSize/2 - 20,0,offset);
+
+ scene.add(p2,p3,p4);
+}
+
+// 内部线路
+for(let i=0;i<300;i++){
+ let geo = new THREE.BufferGeometry().setFromPoints([
+  new THREE.Vector3((Math.random()-0.5)*baseSize,20,(Math.random()-0.5)*baseSize),
+  new THREE.Vector3((Math.random()-0.5)*baseSize,20,(Math.random()-0.5)*baseSize)
+ ]);
+ let mat = new THREE.LineBasicMaterial({color:0x00ffff,transparent:true,opacity:0.5});
+ let line = new THREE.Line(geo,mat);
+ scene.add(line);
+}
+
+// 粒子
+let count = Math.min(1500, innerWidth * innerHeight / 2000);
+let geo = new THREE.BufferGeometry();
+let arr = new Float32Array(count*3);
+for(let i=0;i<count;i++){
+ arr[i*3]=(Math.random()-0.5)*baseSize;
+ arr[i*3+1]=Math.random()*baseSize;
+ arr[i*3+2]=(Math.random()-0.5)*baseSize;
+}
+geo.setAttribute('position', new THREE.BufferAttribute(arr,3));
+
+let particles = new THREE.Points(
+ geo,
+ new THREE.PointsMaterial({color:0x00ffff,size:2})
+);
+scene.add(particles);
+
+let mode="idle";
+
+function animate(){
+ requestAnimationFrame(animate);
+
+ if(mode==="zoom"){
+  camera.position.z -= 15;
+  camera.position.y -= 2;
+ }
+
+ chip.rotation.y += 0.002;
+ particles.rotation.y += 0.0015;
+
+ renderer.render(scene,camera);
+}
+animate();
+
+function start(){
+ document.getElementById('ui').classList.add('fade');
+ mode="zoom";
+
+ setTimeout(()=>flash(),1000);
+ setTimeout(()=>location.href="main.html",2000);
+}
+
+function flash(){
+ let div=document.createElement('div');
+ div.style.position='fixed';
+ div.style.top=0;div.style.left=0;
+ div.style.width='100%';div.style.height='100%';
+ div.style.background='#0ff';
+ div.style.opacity=0.9;
+ div.style.transition='opacity 0.6s';
+ document.body.appendChild(div);
+ setTimeout(()=>div.style.opacity=0,50);
+}
+
+onresize=()=>{
+ camera.aspect=innerWidth/innerHeight;
+ camera.updateProjectionMatrix();
+ renderer.setSize(innerWidth,innerHeight);
+};
+</script>
+</body>
+</html>

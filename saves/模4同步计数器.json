@@ -1,0 +1,324 @@
+{
+  "components": [
+    {
+      "id": 21,
+      "customN": null,
+      "type": "JKFF",
+      "x": 376.2682105476453,
+      "y": 179.61816375710538,
+      "w": 90,
+      "h": 100,
+      "inputs": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "outputs": [
+        false,
+        true
+      ],
+      "frameStartOutputs": [
+        false,
+        true
+      ],
+      "state": false,
+      "lastClk": true,
+      "timer": 0
+    },
+    {
+      "id": 23,
+      "customN": null,
+      "type": "XOR",
+      "x": 396.35191685653086,
+      "y": 27.284981493356057,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false,
+        false
+      ],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": 0,
+      "timer": 0
+    },
+    {
+      "id": 22,
+      "customN": null,
+      "type": "JKFF",
+      "x": 704.0498728644346,
+      "y": 173.5552409926849,
+      "w": 90,
+      "h": 100,
+      "inputs": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "outputs": [
+        true,
+        false
+      ],
+      "frameStartOutputs": [
+        true,
+        false
+      ],
+      "state": true,
+      "lastClk": true,
+      "timer": 0
+    },
+    {
+      "id": 26,
+      "customN": null,
+      "type": "NOT",
+      "x": 589.2315528259896,
+      "y": 187.95485602244216,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false
+      ],
+      "outputs": [
+        true
+      ],
+      "frameStartOutputs": [
+        true
+      ],
+      "state": 0,
+      "timer": 0
+    },
+    {
+      "id": 27,
+      "customN": null,
+      "type": "NOT",
+      "x": 264.4813808021211,
+      "y": 189.09169740683575,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false
+      ],
+      "outputs": [
+        true
+      ],
+      "frameStartOutputs": [
+        true
+      ],
+      "state": 0,
+      "timer": 0
+    },
+    {
+      "id": 28,
+      "customN": null,
+      "type": "SWITCH",
+      "x": 130.33724148337615,
+      "y": 128.8405206587591,
+      "w": 90,
+      "h": 60,
+      "inputs": [],
+      "outputs": [
+        true
+      ],
+      "frameStartOutputs": [
+        true
+      ],
+      "state": true,
+      "timer": 0
+    },
+    {
+      "id": 29,
+      "customN": null,
+      "type": "CLOCK",
+      "x": 173.5362238985194,
+      "y": 269.047748978506,
+      "w": 90,
+      "h": 60,
+      "inputs": [],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": false,
+      "timer": 1
+    },
+    {
+      "id": 25,
+      "customN": null,
+      "type": "AND",
+      "x": 712.0076324569951,
+      "y": 81.85216092211097,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false,
+        true
+      ],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": 0,
+      "timer": 0
+    },
+    {
+      "id": 30,
+      "customN": null,
+      "type": "LIGHT",
+      "x": 828.3418711061574,
+      "y": 84.88366567038582,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false
+      ],
+      "outputs": [],
+      "frameStartOutputs": [],
+      "state": false,
+      "timer": 0
+    },
+    {
+      "id": 32,
+      "customN": null,
+      "type": "SEG8",
+      "x": 817.3526790420963,
+      "y": 177.72360158070802,
+      "w": 100,
+      "h": 100,
+      "inputs": [
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "outputs": [],
+      "frameStartOutputs": [],
+      "state": 2,
+      "timer": 0
+    },
+    {
+      "id": 24,
+      "customN": null,
+      "type": "SWITCH",
+      "x": 195.893482877998,
+      "y": 1.5171549946321943,
+      "w": 90,
+      "h": 60,
+      "inputs": [],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": false,
+      "timer": 0
+    }
+  ],
+  "wires": [
+    {
+      "fromId": 24,
+      "fromNodeIdx": 0,
+      "toId": 23,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 23,
+      "fromNodeIdx": 0,
+      "toId": 22,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 23,
+      "fromNodeIdx": 0,
+      "toId": 22,
+      "toNodeIdx": 2
+    },
+    {
+      "fromId": 21,
+      "fromNodeIdx": 0,
+      "toId": 23,
+      "toNodeIdx": 1
+    },
+    {
+      "fromId": 21,
+      "fromNodeIdx": 0,
+      "toId": 25,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 22,
+      "fromNodeIdx": 0,
+      "toId": 25,
+      "toNodeIdx": 1
+    },
+    {
+      "fromId": 26,
+      "fromNodeIdx": 0,
+      "toId": 22,
+      "toNodeIdx": 1
+    },
+    {
+      "fromId": 27,
+      "fromNodeIdx": 0,
+      "toId": 21,
+      "toNodeIdx": 1
+    },
+    {
+      "fromId": 28,
+      "fromNodeIdx": 0,
+      "toId": 21,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 28,
+      "fromNodeIdx": 0,
+      "toId": 21,
+      "toNodeIdx": 2
+    },
+    {
+      "fromId": 29,
+      "fromNodeIdx": 0,
+      "toId": 27,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 29,
+      "fromNodeIdx": 0,
+      "toId": 26,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 25,
+      "fromNodeIdx": 0,
+      "toId": 30,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 21,
+      "fromNodeIdx": 0,
+      "toId": 32,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 22,
+      "fromNodeIdx": 0,
+      "toId": 32,
+      "toNodeIdx": 1
+    }
+  ],
+  "nextId": 33
+}

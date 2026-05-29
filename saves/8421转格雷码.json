@@ -1,0 +1,266 @@
+{
+  "components": [
+    {
+      "id": 37,
+      "customN": null,
+      "type": "XOR",
+      "x": 712.971114963682,
+      "y": 96.463147169197,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false,
+        false
+      ],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": 0,
+      "timer": 0
+    },
+    {
+      "id": 40,
+      "customN": null,
+      "type": "XOR",
+      "x": 717.5544530122538,
+      "y": 172.41592739677964,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false,
+        false
+      ],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": 0,
+      "timer": 0
+    },
+    {
+      "id": 39,
+      "customN": null,
+      "type": "XOR",
+      "x": 715.5901367316437,
+      "y": 245.74971083371895,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false,
+        false
+      ],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": 0,
+      "timer": 0
+    },
+    {
+      "id": 44,
+      "customN": null,
+      "type": "LIGHT",
+      "x": 846.5432732699215,
+      "y": 53.90339402951455,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false
+      ],
+      "outputs": [],
+      "frameStartOutputs": [],
+      "state": false,
+      "timer": 0
+    },
+    {
+      "id": 43,
+      "customN": null,
+      "type": "LIGHT",
+      "x": 836.7217917761478,
+      "y": 130.51100463104493,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false
+      ],
+      "outputs": [],
+      "frameStartOutputs": [],
+      "state": false,
+      "timer": 0
+    },
+    {
+      "id": 42,
+      "customN": null,
+      "type": "LIGHT",
+      "x": 845.233612522025,
+      "y": 207.1185153232991,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false
+      ],
+      "outputs": [],
+      "frameStartOutputs": [],
+      "state": false,
+      "timer": 0
+    },
+    {
+      "id": 41,
+      "customN": null,
+      "type": "LIGHT",
+      "x": 845.8883679640145,
+      "y": 277.8332270376384,
+      "w": 90,
+      "h": 60,
+      "inputs": [
+        false
+      ],
+      "outputs": [],
+      "frameStartOutputs": [],
+      "state": false,
+      "timer": 0
+    },
+    {
+      "id": 35,
+      "customN": null,
+      "type": "SWITCH",
+      "x": 574.1608132122429,
+      "y": 204.49944360069856,
+      "w": 90,
+      "h": 60,
+      "inputs": [],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": false,
+      "timer": 0
+    },
+    {
+      "id": 36,
+      "customN": null,
+      "type": "SWITCH",
+      "x": 573.5060078156142,
+      "y": 132.47522100237848,
+      "w": 90,
+      "h": 60,
+      "inputs": [],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": false,
+      "timer": 0
+    },
+    {
+      "id": 34,
+      "customN": null,
+      "type": "SWITCH",
+      "x": 572.8512523736237,
+      "y": 273.90459447641837,
+      "w": 90,
+      "h": 60,
+      "inputs": [],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": false,
+      "timer": 0
+    },
+    {
+      "id": 33,
+      "customN": null,
+      "type": "SWITCH",
+      "x": 576.1250795382147,
+      "y": 55.867685332805294,
+      "w": 90,
+      "h": 60,
+      "inputs": [],
+      "outputs": [
+        false
+      ],
+      "frameStartOutputs": [
+        false
+      ],
+      "state": false,
+      "timer": 0
+    }
+  ],
+  "wires": [
+    {
+      "fromId": 33,
+      "fromNodeIdx": 0,
+      "toId": 37,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 36,
+      "fromNodeIdx": 0,
+      "toId": 37,
+      "toNodeIdx": 1
+    },
+    {
+      "fromId": 36,
+      "fromNodeIdx": 0,
+      "toId": 40,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 35,
+      "fromNodeIdx": 0,
+      "toId": 40,
+      "toNodeIdx": 1
+    },
+    {
+      "fromId": 35,
+      "fromNodeIdx": 0,
+      "toId": 39,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 34,
+      "fromNodeIdx": 0,
+      "toId": 39,
+      "toNodeIdx": 1
+    },
+    {
+      "fromId": 37,
+      "fromNodeIdx": 0,
+      "toId": 43,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 40,
+      "fromNodeIdx": 0,
+      "toId": 42,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 39,
+      "fromNodeIdx": 0,
+      "toId": 41,
+      "toNodeIdx": 0
+    },
+    {
+      "fromId": 33,
+      "fromNodeIdx": 0,
+      "toId": 44,
+      "toNodeIdx": 0
+    }
+  ],
+  "nextId": 45
+}
